@@ -1,0 +1,23 @@
+
+.main-wrapper {
+  height: 100%;
+}
+
+.main-container {
+  margin-right: 12px;
+  margin-left: 12px;
+}
+
+
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: antiquewhite;
+  z-index: 999;
+}
+
+.body-container {
+  margin-top: 70px; /* add some margin to the top of the main content */
+}
