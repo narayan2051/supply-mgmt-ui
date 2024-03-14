@@ -1,18 +1,16 @@
 <div class="main-wrapper">
   <div class="header-container">
     <app-header></app-header>
-  </div>
-
-  <div class="body-container">
     <mat-drawer-container class="side-drawer-container">
       <mat-drawer [opened]="true" mode="side">
         <app-side-nav [sideNavItems]="sideNavItems"></app-side-nav>
       </mat-drawer>
-
-      <div class="main-container">
-        <router-outlet></router-outlet>
-      </div>
-
     </mat-drawer-container>
+  </div>
+
+  <div class="body-container">
+    <div class="main-container">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
