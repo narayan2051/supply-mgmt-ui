@@ -1,6 +1,22 @@
-.test-class{
-
-  height: 50%;
-  width: 50%;
-  background: green;
+.stock-main-container {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
 }
+.stock-header-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+table{
+  width: 100%;
+}
+
+.stock-section{
+  width: 70%;
+}
+
+.category-section{
+  width: 30%;
+}
+

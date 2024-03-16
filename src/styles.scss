@@ -1,9 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
 
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 
-.mat-drawer{
+.mat-drawer {
   border-right: 1px solid black !important;
   height: 100%;
+}
+
+
+.btn-primary {
+  background-color: green;
+}
+
+
+.btn-reset {
+  background-color: red;
+}
+
+.button-container{
+  display: flex;
+  gap: 12px;
+}
+
+.mat-form-field{
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.delete-forever{
+  color: #e31616;
+}
+
+.cdk-overlay-pane{
+  width: 50%;
+}
+.mat-dialog-actions{
+  float: right;
 }
