@@ -1,9 +1,9 @@
 <div class="main-wrapper">
   <div class="header-container">
     <app-header></app-header>
-    <mat-drawer-container class="side-drawer-container">
+    <mat-drawer-container class="side-drawer-container" *ngIf="authService.isLoggedIn()">
       <mat-drawer [opened]="true" mode="side">
-        <app-side-nav [sideNavItems]="sideNavItems"></app-side-nav>
+        <app-side-nav [sideNavItems]="authService.isAdmin()?sideNavItemsForAdmin:sideNavItemsForUser"></app-side-nav>
       </mat-drawer>
     </mat-drawer-container>
   </div>

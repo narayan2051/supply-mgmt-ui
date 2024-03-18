@@ -21,11 +21,10 @@
     </mat-dialog-content>
     <mat-dialog-actions>
       <div class="button-container">
-        <button mat-button  [mat-dialog-close]="closeDialog" class="btn-primary" (click)="submit()">Submit</button>
-        <button mat-button type="reset" mat-dialog-close="true" class="btn-reset">Cancel</button>
+        <button mat-button type="submit"  class="btn-primary" (click)="submit()">Submit</button>
+        <button mat-button type="reset" (click)="closeDialog()" class="btn-reset">Cancel</button>
       </div>
     </mat-dialog-actions>
   </form>
-
 
 </div>

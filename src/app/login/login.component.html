@@ -1,0 +1,30 @@
+<div class="login-container">
+  <div class="login-header">
+    <h2>Login to Order and Supply Management System</h2>
+    <div class="login-header">
+    </div>
+  </div>
+  <form [formGroup]="loginFormGroup">
+    <div>
+
+      <mat-form-field>
+        <mat-label>
+          Email
+        </mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>
+          Password
+        </mat-label>
+        <input type="password" matInput formControlName="password">
+      </mat-form-field>
+    </div>
+    <div class="button-container">
+      <button mat-button class="btn-primary" (click)="login()">Login</button>
+      <button mat-button class="btn-reset">Reset</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,43 @@
+<div class="add-form-container">
+  <h2 mat-dialog-title>Add New Client</h2>
+
+  <div class="form-container">
+    <form [formGroup]="clientForm">
+      <mat-dialog-content>
+        <div>
+          <mat-form-field>
+            <mat-label> Name</mat-label>
+            <input matInput formControlName="name">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Phone Number</mat-label>
+            <input matInput formControlName="phone">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>PAN</mat-label>
+            <input matInput formControlName="pan">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Address</mat-label>
+            <input  matInput formControlName="address">
+          </mat-form-field>
+        </div>
+      </mat-dialog-content>
+      <mat-dialog-actions>
+        <div class="button-container">
+          <button mat-button class="btn-primary" (click)="submit()">Submit</button>
+          <button mat-button type="reset" mat-dialog-close="true" class="btn-reset">Cancel</button>
+        </div>
+      </mat-dialog-actions>
+
+    </form>
+
+  </div>
+
+</div>

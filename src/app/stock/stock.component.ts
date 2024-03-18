@@ -3,13 +3,13 @@ import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {AddStockComponent} from "./add-stock/add-stock.component";
 import {AddCategoryComponent} from "./add-category/add-category.component";
+import {ApiService} from "../api.service";
 
 export interface Product {
   category: string;
   name: string;
 }
 
-const CATAGORY_DATA: any = [{name: "Grocery"}, {name: "Test1"}];
 
 const ELEMENT_DATA: Product[] = [
   {category: 'Grocery', name: 'Rice'},
@@ -25,11 +25,11 @@ const ELEMENT_DATA: Product[] = [
 })
 export class StockComponent implements OnInit {
   displayedColumns: string[] = ['category', 'name', 'action'];
-  displayedCategoryColumns: string[] = ['name'];
+  displayedCategoryColumns: string[] = ['name', 'description'];
   dataSource = ELEMENT_DATA;
-  categoryDataSource = CATAGORY_DATA;
+  categoryDataSource: any;
 
-  constructor(private router: Router, public dialog: MatDialog) {
+  constructor(private router: Router, public dialog: MatDialog, private apiService: ApiService) {
     if (this.router.getCurrentNavigation()?.extras?.state) {
       // @ts-ignore
       let stateData = this.router.getCurrentNavigation()?.extras?.state['product'];
@@ -40,6 +40,13 @@ export class StockComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.fetchCategoryData();
+  }
+
+  private fetchCategoryData() {
+    this.apiService.getAllCategories().subscribe((res: any) => {
+      this.categoryDataSource = res;
+    })
   }
 
   openAddNewPage() {
@@ -52,7 +59,11 @@ export class StockComponent implements OnInit {
   }
 
   openAddNewCategoryDialog() {
-    this.dialog.open(AddCategoryComponent);
-
+    let dialogRef = this.dialog.open(AddCategoryComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result?.action === "submit") {
+        this.fetchCategoryData();
+      }
+    });
   }
 }

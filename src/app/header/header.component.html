@@ -1,16 +1,16 @@
-<div class="header-container">
+<div class="header-container" *ngIf="authService.isLoggedIn()">
 
   <div class="company-info-section">
     <h2> Order and Supply Management Interface</h2>
   </div>
 
-  <div>
+  <div >
     <div class="user-info-section">
       <div>
         <p>Welcome Narayan</p>
       </div>
       <div>
-        <a href="/logout">Logout</a></div>
+        <a href="#" (click)="authService.logout()">Logout</a></div>
     </div>
   </div>
 
