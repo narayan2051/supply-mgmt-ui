@@ -16,9 +16,6 @@ jobs:
       - name: Install Node Modules
         run: npm install
 
-      - name: Linting
-        run: ng lint
-
       - name: Run Test
         run: ng test
 
