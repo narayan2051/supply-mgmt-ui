@@ -4,18 +4,40 @@ on:
     branches:
       - main
 jobs:
-  build:
-
+  lint:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install Angular CLI
-        run: npm install -g @angular/cli@16.2.14
+        run: npm i @angular/cli@14.2.13
       - name: Install Node Modules
         run: npm install
 
-      - name: Run Test
+  test:
+      runs-on: ubuntu-latest
+      needs: lint
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Angular CLI
+        run: npm i @angular/cli@14.2.13
+      - name: Install Node Modules
+        run: npm install
+
+      - name: Install Node Modules
         run: ng test
 
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Install Angular CLI
+      run: npm i @angular/cli@14.2.13
+    - name: Install Node Modules
+      run: npm install
+
+    - name: Run Build
+      run: ng build

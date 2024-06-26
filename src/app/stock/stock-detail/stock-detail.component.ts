@@ -24,7 +24,7 @@ const ELEMENT_DATA: Product[] = [
   templateUrl: './stock-detail.component.html',
   styleUrls: ['./stock-detail.component.scss']
 })
-export class StockDetailComponent implements OnInit {
+export class StockDetailComponent {
   displayedColumns: string[] = ['category', 'name', 'price', 'quantity', 'unit', 'total', 'action'];
   dataSource = ELEMENT_DATA;
 
@@ -40,8 +40,6 @@ export class StockDetailComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-  }
 
   openAddNewPage() {
     this.router.navigate(['stocks/add-stock']);
