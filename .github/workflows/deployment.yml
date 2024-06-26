@@ -23,11 +23,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install Angular CLI
-        run: npm i @angular/cli@14.2.13
+        run: npm install -g @angular/cli
       - name: Install Node Modules
         run: npm install
 
-      - name: Install Node Modules
+      - name: Run Test
         run: ng test
 
   build:
@@ -37,7 +37,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install Angular CLI
-        run: npm i @angular/cli@14.2.13
+        run: npm install -g @angular/cli
       - name: Install Node Modules
         run: npm install
 
